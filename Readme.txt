@@ -1,1 +1,1 @@
-progect discriptin
+Here are the projects made within the framework of the course, Javapvt6
