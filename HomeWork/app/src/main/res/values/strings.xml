@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HomeWork</string>
+    <string name="button">Button</string>
+    <string name="text1">First text</string>
+    <string name="text2">Next text</string>
+    <string name="dz1">DZ1</string>
+    <string name="dz2">DZ2</string>
+    <string name="dz3">DZ3</string>
+    <string name="dz4">DZ4</string>
+    <string name="poland">Польша</string>
+    <string name="austria">Австрия</string>
+    <string name="columb">Колумбия</string>
+    <string name="tailand">Таиланд</string>
+    <string name="italy">Италия</string>
+    <string name="mada">Мадагаскар</string>
+    <string name="danyi">Дания</string>
+    <string name="iemen">Йемен</string>
+</resources>
