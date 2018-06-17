@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button button1;
     Button button2;
+    Button button3;
+    Button button4;
 
 
     private View.OnClickListener knopka = new View.OnClickListener(){
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
             }else if (v.getId() == R.id.button2){
                 HW2.show(MainActivity.this);
             }else if (v.getId() == R.id.button3){
+                HW3.show(MainActivity.this);
+            } else if (v.getId() == R.id.button4){
                 HW3.show(MainActivity.this);
             }
 //            Intent intent = new Intent(MainActivity.this, HW2.class);
@@ -32,9 +37,13 @@ public class MainActivity extends AppCompatActivity {
 
         button1 = (Button)findViewById(R.id.button);
         button2 = (Button)findViewById(R.id.button2);
+        button3 = (Button)findViewById(R.id.button3);
+        button4 = (Button)findViewById(R.id.button4);
 
         button1.setOnClickListener(knopka);
         button2.setOnClickListener(knopka);
+        button3.setOnClickListener(knopka);
+        button4.setOnClickListener(knopka);
 
         Log.e("Chebur", "onCreate");
     }
