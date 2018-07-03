@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.my_domain.homework">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,14 +15,16 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".HW1" />
         <activity android:name=".HW2" />
         <activity android:name=".HW3" />
-        <activity android:name=".HW4"></activity>
+        <activity android:name=".HW4" />
+        <activity android:name=".HW5" />
+        <service android:name=".Servise" />
     </application>
 
 </manifest>

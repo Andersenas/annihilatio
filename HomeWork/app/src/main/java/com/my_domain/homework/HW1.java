@@ -91,4 +91,9 @@ public class HW1 extends AppCompatActivity {
         textView.setBackgroundColor(id_col2);
         button.setBackgroundColor(id_col1);
     }
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }
