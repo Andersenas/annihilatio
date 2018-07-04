@@ -9,18 +9,23 @@ import android.content.IntentFilter;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.ServiceConnection;
 
-import java.util.Objects;
 
 public class HW5 extends AppCompatActivity {
     TextView textView;
+    Button button;
+    WifiManager wifiManager;
+    boolean isConnected;
 
     private AnimationDrawable mAnimationDrawable;
 
@@ -34,6 +39,18 @@ public class HW5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hw5);
         textView = findViewById(R.id.textView3);
+        button = findViewById(R.id.button6);
+        wifiManager = (WifiManager)this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isConnected) {
+                    wifiManager.setWifiEnabled(false);
+                } else {
+                    wifiManager.setWifiEnabled(true);
+                }
+            }
+        });
 
     }
 
@@ -45,7 +62,7 @@ public class HW5 extends AppCompatActivity {
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(broadcastReceiver, intentFilter);
 
-        bindService(new Intent(this, Servise.class), serviceConnection, BIND_AUTO_CREATE);
+        bindService(new Intent(this, MyService.class), serviceConnection, BIND_AUTO_CREATE);
 
     }
 
@@ -75,7 +92,7 @@ public class HW5 extends AppCompatActivity {
             ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             assert connMgr != null;
             NetworkInfo wifi = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-            boolean isConnected = wifi != null && wifi.isConnectedOrConnecting();
+            isConnected = wifi != null && wifi.isConnectedOrConnecting();
 
             if (isConnected) {
                 textView.setText("Wifi on");

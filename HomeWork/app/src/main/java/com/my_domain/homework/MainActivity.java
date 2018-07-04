@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     Button button3;
     Button button4;
     Button button5;
+    Button button7;
 
 
     private View.OnClickListener knopka = new View.OnClickListener(){
@@ -27,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
                 HW4.show(MainActivity.this);
             } else if (v.getId() == R.id.button5){
                 HW5.show(MainActivity.this);
+            } else if (v.getId() == R.id.button7){
+                HW4_2.show(MainActivity.this);
             }
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//            Intent intent = new Intent(MainActivity.this, HW2.class);
-//            startActivity(intent);
         }
     };
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         button3 = (Button)findViewById(R.id.button3);
         button4 = (Button)findViewById(R.id.button4);
         button5 = (Button)findViewById(R.id.button5);
+        button7 = (Button)findViewById(R.id.button7);
 
 
         button1.setOnClickListener(knopka);
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(knopka);
         button4.setOnClickListener(knopka);
         button5.setOnClickListener(knopka);
+        button7.setOnClickListener(knopka);
 
 
         Log.e("Chebur", "onCreate");
