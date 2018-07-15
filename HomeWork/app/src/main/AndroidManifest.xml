@@ -30,7 +30,9 @@
 
         <service android:name=".MyService" />
 
-        <activity android:name=".HW4_2"></activity>
+        <activity android:name=".HW4_2" />
+        <activity android:name=".HostActivity" />
+
     </application>
 
 </manifest>
