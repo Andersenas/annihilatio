@@ -1,46 +1,104 @@
 package com.my_domain.recyclerview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 import com.bumptech.glide.Glide;
 
 public class GalleryActivity extends AppCompatActivity {
 
     private static final String TAG = "GalleryActivity";
+    MenuItem button_save;
+    MenuItem button_edit;
+    EditText data_edit;
+    TextView data_show;
+    String str_data;
+    String imageUrl;
+    String position;
+    Boolean delete = false;
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.edit_menu, menu);
+        button_save = menu.findItem(R.id.main_menu_save);
+        button_edit = menu.findItem(R.id.main_menu_edit);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.main_menu_edit:
+                button_edit.setVisible(false);
+                button_save.setVisible(true);
+                data_show.setVisibility(View.INVISIBLE);
+                data_edit.setVisibility(View.VISIBLE);
+
+                break;
+            case R.id.main_menu_save:
+                button_edit.setVisible(true);
+                button_save.setVisible(false);
+                data_show.setVisibility(View.VISIBLE);
+                data_edit.setVisibility(View.INVISIBLE);
+                data_show.setText(str_data);
+                changeData(delete);
+                break;
+            case R.id.main_menu_delete:
+                delete = true;
+                changeData(delete);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        Log.d(TAG, "onCreate: started.");
+        data_edit = (EditText) findViewById(R.id.image_description_edit);
 
         getIncomingIntent();
+
+    }
+
+    private void changeData(Boolean delete){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("new_data", data_edit.getText().toString());
+        intent.putExtra("position", position);
+        intent.putExtra("delete", delete);
+        data_show.setText(data_edit.getText().toString());
+        this.startActivity(intent);
     }
 
     private void getIncomingIntent(){
-        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
 
-        if(getIntent().hasExtra("image_url") && getIntent().hasExtra("image_name")){
-            Log.d(TAG, "getIncomingIntent: found intent extras.");
+        if(getIntent().hasExtra("image_url") && getIntent().hasExtra("position")  && getIntent().hasExtra("position")){
 
-            String imageUrl = getIntent().getStringExtra("image_url");
-            String imageName = getIntent().getStringExtra("image_name");
-
-            setImage(imageUrl, imageName);
+            imageUrl = getIntent().getStringExtra("image_url");
+            str_data = getIntent().getStringExtra("image_name");
+            position = getIntent().getStringExtra("position");
+            setImage(imageUrl, str_data);
         }
     }
 
 
-    private void setImage(String imageUrl, String imageName){
-        Log.d(TAG, "setImage: setting te image and name to widgets.");
+    private void setImage(String imageUrl, String str_data){
 
-        TextView name = findViewById(R.id.image_description);
-        name.setText(imageName);
+        data_show = findViewById(R.id.image_description);
+        data_show.setText(str_data);
+        data_edit.setText(str_data);
 
         ImageView image = findViewById(R.id.image);
         Glide.with(this)

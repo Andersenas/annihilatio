@@ -1,5 +1,6 @@
 package com.my_domain.recyclerview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,12 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_menu_add:
-
-//                mImageUrls.add("https://www.nssi.com/media/wysiwyg/images/2.jpg");
-//                mNames.add("Urod Urodov");
-//
-//                initRecyclerView();
-
+                NewElementActivity.show(MainActivity.this);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -47,23 +44,49 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: started.");
 
         initImageBitmaps();
+
+        getData();
     }
 
+    private void getData(){
+        if(getIntent().hasExtra("new_data") && getIntent().hasExtra("position") && getIntent().hasExtra("delete")){
+            String str_data = getIntent().getStringExtra("new_data");
+            String position = getIntent().getStringExtra("position");
+            Boolean delete = getIntent().getBooleanExtra("delete", true);
+            if (delete) {
+                mImageUrls.remove(position);
+                mNames.remove(position);
+            } else {
+                mNames.set( Integer.parseInt(position), str_data );
+            }
+
+        } else if(getIntent().hasExtra("url_image") && getIntent().hasExtra("name") && getIntent().hasExtra("create")){
+            String urlImage = getIntent().getStringExtra("url_image");
+            String names = getIntent().getStringExtra("name");
+            mImageUrls.add(urlImage);
+            mNames.add(names);
+
+        }
+    }
+
+
     private void initImageBitmaps(){
-        Log.d(TAG, "initImageBitmaps:preparing");
 
-        mImageUrls.add("https://s16815.pcdn.co/wp-content/uploads/2017/06/iStock-609683672-studying.jpg");
-        mNames.add("Olga Petrova");
-        //
 
-        mImageUrls.add("https://www.nssi.com/media/wysiwyg/images/2.jpg");
-        mNames.add("Egor Zonozov");
+            mImageUrls.add("https://s16815.pcdn.co/wp-content/uploads/2017/06/iStock-609683672-studying.jpg");
+            mNames.add("Olga Petrova");
+            //
 
-        mImageUrls.add("https://www1.bournemouth.ac.uk/sites/default/files/assets/images/chinese-students-female.jpg");
-        mNames.add("Mariya Sinicina");
+            mImageUrls.add("https://www.nssi.com/media/wysiwyg/images/2.jpg");
+            mNames.add("Egor Zonozov");
 
-        mImageUrls.add("http://onthehub.com/wp-content/uploads/product-course-ncss10.jpg");
-        mNames.add("Mariya Starikova");
+            mImageUrls.add("https://www1.bournemouth.ac.uk/sites/default/files/assets/images/chinese-students-female.jpg");
+            mNames.add("Mariya Sinicina");
+
+            mImageUrls.add("http://onthehub.com/wp-content/uploads/product-course-ncss10.jpg");
+            mNames.add("Mariya Starikova");
+
+
 
         initRecyclerView();
     }
