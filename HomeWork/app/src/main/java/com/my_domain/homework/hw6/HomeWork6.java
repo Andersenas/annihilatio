@@ -1,24 +1,35 @@
-package com.my_domain.recyclerview;
+package com.my_domain.homework.hw6;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+
+import com.my_domain.homework.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeWork6 extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "HomeWork6";
 
     //vars
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
+
 
 
     @Override
@@ -31,24 +42,30 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_menu_add:
-                NewElementActivity.show(MainActivity.this);
+                NewElementActivity.show(HomeWork6.this);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    public static void show(Activity activity) {
+        Intent intent = new Intent(activity, HomeWork6.class);
+        activity.startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home_work6);
         Log.d(TAG, "onCreate: started.");
-
         initImageBitmaps();
-
         getData();
     }
 
     private void getData(){
+
+        Log.e("Cheburaha", "Поехало");
+
         if(getIntent().hasExtra("new_data") && getIntent().hasExtra("position") && getIntent().hasExtra("delete")){
             String str_data = getIntent().getStringExtra("new_data");
             String position = getIntent().getStringExtra("position");
@@ -72,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void initImageBitmaps(){
 
+        if (mNames.isEmpty()) {
+
+            Log.e("Cheburaha", "Новые данные");
+
 
             mImageUrls.add("https://s16815.pcdn.co/wp-content/uploads/2017/06/iStock-609683672-studying.jpg");
             mNames.add("Olga Petrova");
@@ -86,9 +107,9 @@ public class MainActivity extends AppCompatActivity {
             mImageUrls.add("http://onthehub.com/wp-content/uploads/product-course-ncss10.jpg");
             mNames.add("Mariya Starikova");
 
+            initRecyclerView();
 
-
-        initRecyclerView();
+        }
     }
 
     private void initRecyclerView(){

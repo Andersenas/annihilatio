@@ -1,12 +1,14 @@
-package com.my_domain.recyclerview;
+package com.my_domain.homework.hw6;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+
+import com.my_domain.homework.R;
 
 public class NewElementActivity extends AppCompatActivity {
 

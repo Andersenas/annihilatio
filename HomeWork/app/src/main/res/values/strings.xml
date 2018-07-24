@@ -10,6 +10,7 @@
     <string name="dz4_2">DZ4_2</string>
     <string name="dz5">DZ5</string>
     <string name="dz6">DZ6</string>
+    <string name="dz7">DZ7</string>
     <string name="poland">Польша</string>
     <string name="austria">Австрия</string>
     <string name="columb">Колумбия</string>
@@ -20,4 +21,8 @@
     <string name="iemen">Йемен</string>
     <string name="url">http://goo.gl/bGtMDC</string>
     <string name="showImg">Отобразить картинку</string>
+    <string name="addStu">Add a new student</string>
+    <string name="type_url_image">Type URL image</string>
+    <string name="vasya">Vasya</string>
+    <string name="type_name_student">Type name student</string>
 </resources>

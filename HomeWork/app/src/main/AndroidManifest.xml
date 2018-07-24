@@ -18,7 +18,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,11 +26,14 @@
         <activity android:name=".HW3" />
         <activity android:name=".HW4" />
         <activity android:name=".HW5" />
+        <activity android:name=".hw6.GalleryActivity" />
+        <activity android:name=".hw6.NewElementActivity" />
 
         <service android:name=".MyService" />
 
         <activity android:name=".HW4_2" />
         <activity android:name=".HostActivity" />
+        <activity android:name=".hw6.HomeWork6" />
 
     </application>
 

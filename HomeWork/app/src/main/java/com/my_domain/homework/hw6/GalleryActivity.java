@@ -1,4 +1,4 @@
-package com.my_domain.recyclerview;
+package com.my_domain.homework.hw6;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.bumptech.glide.Glide;
+import com.my_domain.homework.R;
 
 public class GalleryActivity extends AppCompatActivity {
 
