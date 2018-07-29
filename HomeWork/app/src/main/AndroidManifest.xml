@@ -18,6 +18,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -35,7 +36,9 @@
         <activity android:name=".HostActivity" />
         <activity android:name=".hw6.HomeWork6" />
         <activity android:name=".hw4.DiagrammeActivity" />
-
+        <activity android:name=".hw8.HW8" />
+        <activity android:name=".hw8.RxFirstActivity" />
+        <activity android:name=".hw8.RxSecondActivity"></activity>
     </application>
 
 </manifest>

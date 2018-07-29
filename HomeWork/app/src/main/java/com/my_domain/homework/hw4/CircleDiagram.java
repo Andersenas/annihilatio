@@ -16,7 +16,7 @@ import com.my_domain.homework.Builders.PaintBuilder;
 
 public class CircleDiagram extends View {
     private Paint red = PaintBuilder.getInstance().setAntiAlias(true).setColor(Color.RED).setStyle(Paint.Style.FILL).getPaint();
-    private Paint yellow = PaintBuilder.getInstance().setAntiAlias(true).setColor(Color.YELLOW).setStyle(Paint.Style.FILL).getPaint();
+    private Paint green = PaintBuilder.getInstance().setAntiAlias(true).setColor(Color.GREEN).setStyle(Paint.Style.FILL).getPaint();
     private Paint blue = PaintBuilder.getInstance().setAntiAlias(true).setColor(Color.BLUE).setStyle(Paint.Style.FILL).getPaint();
     private float oneDegree;
     private float twoDegree;
@@ -66,7 +66,7 @@ public class CircleDiagram extends View {
         drawRect();
         canvas.drawArc(rectF, 0f, oneDegree, true, red);
         canvas.drawArc(rectF, oneDegree, twoDegree, true, blue);
-        canvas.drawArc(rectF, oneDegree + twoDegree, threeDegree, true, yellow);
+        canvas.drawArc(rectF, oneDegree + twoDegree, threeDegree, true, green);
     }
 
     @Override

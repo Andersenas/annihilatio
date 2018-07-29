@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.my_domain.homework.hw4.DiagrammeActivity;
 import com.my_domain.homework.hw6.HomeWork6;
+import com.my_domain.homework.hw8.HW8;
 
 public class MainActivity extends AppCompatActivity {
     Button button1;
@@ -18,11 +19,11 @@ public class MainActivity extends AppCompatActivity {
     Button button7;
     Button button8;
     Button button9;
+    Button button10;
 
 
-    private View.OnClickListener knopka = new View.OnClickListener(){
-        @Override
-        public void onClick(View v){
+    private View.OnClickListener knopka = (View v) -> {
+
             if (v.getId() == R.id.button){
                 HW1.show(MainActivity.this);
             }else if (v.getId() == R.id.button2){
@@ -39,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
                 HomeWork6.show(MainActivity.this);
             } else if (v.getId() == R.id.button9){
                 DiagrammeActivity.show(MainActivity.this);
+            } else if (v.getId() == R.id.button10){
+                HW8.show(MainActivity.this);
             }
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        }
+
     };
 
     @Override
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         button7 = (Button)findViewById(R.id.button7);
         button8 = (Button)findViewById(R.id.button8);
         button9 = (Button)findViewById(R.id.button9);
+        button10 = (Button)findViewById(R.id.button10);
 
 
         button1.setOnClickListener(knopka);
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         button7.setOnClickListener(knopka);
         button8.setOnClickListener(knopka);
         button9.setOnClickListener(knopka);
+        button10.setOnClickListener(knopka);
 
 
         Log.e("Chebur", "onCreate");
