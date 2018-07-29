@@ -94,14 +94,14 @@ public class HomeWork6 extends AppCompatActivity {
             Log.e("Cheburaha", "Новые данные");
 
 
-            mImageUrls.add("https://s16815.pcdn.co/wp-content/uploads/2017/06/iStock-609683672-studying.jpg");
+            mImageUrls.add("https://goo.gl/AkU2eHOlga");
             mNames.add("Olga Petrova");
             //
 
-            mImageUrls.add("https://www.nssi.com/media/wysiwyg/images/2.jpg");
+            mImageUrls.add("https://goo.gl/7spPpn");
             mNames.add("Egor Zonozov");
 
-            mImageUrls.add("https://www1.bournemouth.ac.uk/sites/default/files/assets/images/chinese-students-female.jpg");
+            mImageUrls.add("https://goo.gl/44YUWi");
             mNames.add("Mariya Sinicina");
 
             mImageUrls.add("http://onthehub.com/wp-content/uploads/product-course-ncss10.jpg");

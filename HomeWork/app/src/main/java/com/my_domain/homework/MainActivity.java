@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.my_domain.homework.hw4.DiagrammeActivity;
 import com.my_domain.homework.hw6.HomeWork6;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button button5;
     Button button7;
     Button button8;
-
+    Button button9;
 
 
     private View.OnClickListener knopka = new View.OnClickListener(){
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 HW4_2.show(MainActivity.this);
             } else if (v.getId() == R.id.button8){
                 HomeWork6.show(MainActivity.this);
+            } else if (v.getId() == R.id.button9){
+                DiagrammeActivity.show(MainActivity.this);
             }
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         button5 = (Button)findViewById(R.id.button5);
         button7 = (Button)findViewById(R.id.button7);
         button8 = (Button)findViewById(R.id.button8);
+        button9 = (Button)findViewById(R.id.button9);
 
 
         button1.setOnClickListener(knopka);
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         button5.setOnClickListener(knopka);
         button7.setOnClickListener(knopka);
         button8.setOnClickListener(knopka);
+        button9.setOnClickListener(knopka);
 
 
         Log.e("Chebur", "onCreate");

@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">RecyclerView</string>
-    <string name="type_url_image">Type URL image</string>
-    <string name="vasya">Vasya</string>
-    <string name="type_name_student">Type name student</string>
-</resources>

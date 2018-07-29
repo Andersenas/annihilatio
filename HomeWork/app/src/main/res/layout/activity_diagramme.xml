@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hw4.DiagrammeActivity">
+
+    <com.my_domain.homework.hw4.CircleDiagram
+        android:id="@+id/viewDiagramme"
+        android:layout_width="299dp"
+        android:layout_height="403dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/EditTextA"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="205dp"
+        android:layout_marginStart="13dp" />
+
+    <EditText
+        android:id="@+id/EditTextB"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/EditTextA"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/EditTextC"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/EditTextA"
+        android:layout_marginEnd="14dp" />
+
+    <Button
+        android:id="@+id/buttonDiagramme"
+        android:layout_width="176dp"
+        android:layout_height="81dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="46dp"
+        android:text="@string/diagrame" />
+
+</RelativeLayout>

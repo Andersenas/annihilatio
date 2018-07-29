@@ -34,6 +34,7 @@
         <activity android:name=".HW4_2" />
         <activity android:name=".HostActivity" />
         <activity android:name=".hw6.HomeWork6" />
+        <activity android:name=".hw4.DiagrammeActivity" />
 
     </application>
 
